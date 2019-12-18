@@ -16,10 +16,9 @@ import javax.ws.rs.core.MediaType;
 @Path("/entry-point")
 public class App 
 {
-
     @GET
     @Path("test")
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     public String test() {
         return "Test";
     }
