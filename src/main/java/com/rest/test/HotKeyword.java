@@ -7,14 +7,16 @@ public class HotKeyword {
     public HotKeyword() {
 
     }
+
     public HotKeyword(String name, Long count) {
         this.name = name;
         this.count = count;
     }
 
-	public void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
+
     public String getName() {
         return name;
     }

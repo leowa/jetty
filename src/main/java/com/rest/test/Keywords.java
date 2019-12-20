@@ -1,8 +1,8 @@
 package com.rest.test;
 
-import java.io.IOException;
-import java.util.List;
 import redis.clients.jedis.Jedis;
+
+import java.io.IOException;
 
 public class Keywords {
     private final Jedis client;
@@ -13,14 +13,14 @@ public class Keywords {
     }
 
     public HotKeyword put(String key) {
-        if(!this.client.exists(key)) {
+        if (!this.client.exists(key)) {
             this.client.lpush(HOT_KEYS, key);
         }
         return new HotKeyword(key, this.client.incr(key));
     }
 
     public HotKeyword get(String key) {
-        if(!this.client.exists(key)) {
+        if (!this.client.exists(key)) {
             return null;
         }
         return new HotKeyword(key, this.client.incrBy(key, 0));
